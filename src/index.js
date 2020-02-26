@@ -201,8 +201,14 @@ function player(index, data = [...(" ".repeat(100).split("").map(function (value
         strikes: strikes,
         index: index,
         renderer: render(),
-
+        initallevents: function (board) {
+            this.renderer.initEventListeners(board);
+        },
+        renderreset: function () {
+            this.renderer.reset();
+        },
         reset: function() {
+            
             debugger;
             let newdata = [...(" ".repeat(100).split("").map(function (value) {
                 return false
@@ -257,7 +263,7 @@ function player(index, data = [...(" ".repeat(100).split("").map(function (value
       
         },
         initPlayer: function () {
-            this.renderer.initBoards();
+            this.renderer.renderLabels();
         },
         chips: [2, 3, 4, 4, 2, 2, 3, 6].map(function (size) {
             debugger
@@ -322,7 +328,7 @@ function player(index, data = [...(" ".repeat(100).split("").map(function (value
             } else {
                 this.data[position] = true;
             }
-            console.log(this.data);
+            
             this.renderer.strikePosition(this.index, position,this.data[position])
         },
 
@@ -414,7 +420,6 @@ function render() {
     }
 
     return {
-
         addShip: function (playerindex, allpositions, vertex, size) {
             debugger;
 
@@ -431,16 +436,37 @@ function render() {
             })
             return allpositions;
         },
-        initBoards: function () {
-            document.querySelector("#span_player1_label").innerHTML = "Board - Player 1</span><br />Its your turn, play!"
-            document.querySelector("#span_player2_label").innerHTML = "Board - Player 2</span><br />Auto player"
-
+        initEventListeners: function (board) {
+            document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.addEventListener("click", function abc(listener) {
+                debugger;
+                board.rollTurns(this.getAttribute('data-id'));
+                board.rollTurns(Math.floor(Math.random() * 99));
+            }))
+        },
+        reset: function () {
+            document.querySelectorAll("cells > item").forEach((e,v) => {e.classList.remove("active");e.classList.remove("striked");e.classList.remove("striked1"); e.style.backgroundColor = "";});
+            document.querySelector("#span_player1_label").innerHTML = '<span style="font-weight: 600;">Board - Player 1</span><br />Press play to begin'
+            document.querySelector("#span_player2_label").innerHTML = '<span style="font-weight: 600;">Board - CPU</span><br />Press play to begin'
+            document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.parentNode.replaceChild(x.cloneNode(true),x));
+            document.querySelector(`#span_score[data-playerid='${0}']`).innerHTML = 26
+            document.querySelector(`#span_score[data-playerid='${1}']`).innerHTML = 26
+        },
+        renderLabels: function () {
+            document.querySelector("#span_player1_label").innerHTML = '<span style="font-weight: 600;">Board - Player 1</span><br />Its your turn, play!'
+            document.querySelector("#span_player2_label").innerHTML = '<span style="font-weight: 600;">Board - CPU</span><br />Auto player'
         },
         strikePosition: function (playerindex, position, done) {
             debugger;
             
             if (document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.contains('active')) {
                 document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.add('striked');
+                let otherplayer = (playerindex === 1) ? 0 : 1;
+                document.querySelector(`#span_score[data-playerid='${playerindex}']`).innerHTML = parseInt(document.querySelector(`#span_score[data-playerid='${playerindex}']`).innerHTML) - 1
+                if (document.querySelector(`#span_score[data-playerid='${playerindex}']`).innerHTML === "0") {
+                    document.querySelector("#span_player1_label").innerHTML = `<span style="font-weight: 600;">There is a winner!</span><br />Congrats! Player ${otherplayer}`
+                    document.querySelector("#span_player2_label").innerHTML = `<span style="font-weight: 600;">There is a winner!</span><br />Congrats! Player ${otherplayer}`
+                    document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.parentNode.replaceChild(x.cloneNode(true),x));
+                }
             } else if (!document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.contains('striked')) {
                 document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.add('striked1');
             }
@@ -458,12 +484,14 @@ function board() {
             return `There is a winner ${player}`
         },
         initBoard: function () {
+            this.players[0].initallevents(this);
             this.players[0].initPlayer();
             this.players[1].initPlayer();
-
+            
+            
         },
         reset: function() {
-
+            this.players[0].renderreset();
             this.players[0].reset(0);
             this.players[1].reset(1);
         },
@@ -486,17 +514,10 @@ function app() {
         initGame: function () {
             var thisboard = board();
             document.querySelector("#span_reset").addEventListener("click", function () { 
-                document.querySelectorAll("cells > item").forEach((e,v) => {e.classList.remove("active"); e.style.backgroundColor = "";});
                 thisboard.reset();
             })
             document.querySelector("#span_play").addEventListener("click", function () {
-
                 thisboard.initBoard();
-                document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.addEventListener("click", function (listener) {
-                    debugger;
-                    thisboard.rollTurns(this.getAttribute('data-id'));
-                    thisboard.rollTurns(Math.floor(Math.random() * 99));
-                }))
             })
         }
 
