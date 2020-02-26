@@ -1,11 +1,26 @@
 {
   "name": "battleship",
   "version": "1.0.0",
-  "description": "",
+  "description": "Nice :D",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=development"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SotoArmando/odin-battleships.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SotoArmando/odin-battleships/issues"
+  },
+  "homepage": "https://github.com/SotoArmando/odin-battleships#readme",
+  "dependencies": {
+    "webpack": "^4.41.6"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
+  }
 }

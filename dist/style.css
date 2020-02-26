@@ -139,3 +139,8 @@ page.battleships-container > wrapper > board > cells > item.striked {
     background-color: rgba(236, 22, 22, .54) !important;
     transition-duration: 355ms;
 }
+
+page.battleships-container > wrapper > board > cells > item.striked1 {
+    background-color: rgba(255, 251, 23, 0.973) !important;
+    transition-duration: 355ms;
+}
