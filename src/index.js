@@ -415,7 +415,7 @@ function board() {
             if (this.isPlayerOne) {
                 this.players[1].strike(position);
             } else {
-                this.players[1].strike(position);
+                this.players[0].strike(position);
             }
             this.isPlayerOne = !this.isPlayerOne;
         }
@@ -433,7 +433,8 @@ function app() {
                 thisboard.initBoard();
                 document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.addEventListener("click", function (listener) {
                     debugger;
-                    thisboard.rollTurns(this.getAttribute('data-id'))
+                    thisboard.rollTurns(this.getAttribute('data-id'));
+                    thisboard.rollTurns(Math.floor(Math.random() * 99));
                 }))
             })
         }
