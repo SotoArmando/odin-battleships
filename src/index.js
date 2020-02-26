@@ -72,7 +72,6 @@ function positionCalculator(position = 0, data) {
             }
 
             for (let i = 0; i < size; i++) {
-                console.log(yes, vertex.position, size, data[this.position]);
                 positions.push(this.position)
 
                 switch (vertex.direction) {
@@ -361,7 +360,6 @@ function render() {
                     let descicions = positionCalculator(parseInt(elem.getAttribute('data-id')));
                     let hoveredArray = document.querySelectorAll(`cells[data-playerid='${elem.getAttribute('data-playerindex')}'] > item`);
                     let positions = []
-                    console.log(elem.getAttribute('data-size'), elem.getAttribute('data-playerindex'), elem.getAttribute('data-direction'))
                     for (let i = 0; i < elem.getAttribute('data-size'); i++) {
                         document.querySelector(`cells[data-playerid='${elem.getAttribute('data-playerindex')}'] > item[data-id='${descicions.position}']`).classList.add('opened')
                         switch (parseInt(elem.getAttribute('data-direction'))) {
@@ -381,7 +379,6 @@ function render() {
 
                     }
 
-                    console.log(positions)
                 });
 
                 elem.addEventListener("mouseleave", function () {
@@ -408,7 +405,6 @@ function render() {
 
                     }
 
-                    console.log(positions)
                 });
 
                 initialized = true;
@@ -424,7 +420,6 @@ function render() {
             debugger;
 
             let color = `rgba(${(Math.random() * 255)},${(Math.random() * 255)},${(Math.random() * 255)},0.3)`;
-            console.log(color);
             allpositions.forEach(function (position) {
 
                 document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.add('active');
