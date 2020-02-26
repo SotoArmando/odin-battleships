@@ -197,15 +197,74 @@ function player(index, data = [...(" ".repeat(100).split("").map(function (value
     return false
 }))]) {
     return {
-        data,
-        strikes,
-        index,
+        data: data,
+        strikes: strikes,
+        index: index,
         renderer: render(),
+
+        reset: function() {
+            debugger;
+            let newdata = [...(" ".repeat(100).split("").map(function (value) {
+                return false
+            }))];
+            this.data = newdata
+            this.strikes = newdata
+
+            this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map(function (size) {
+                debugger
+                let thisship = undefined;
+                if (!this.index) {
+                    this.index = index;
+                }
+                if (!this.renderer) {
+                    this.renderer = render();
+                }
+                if (!this.data) {
+                    this.data = newdata
+                }
+                if (!this.strikes) {
+                    this.strikes = strikes
+                }
+                let i = 0;
+                while (true) {
+                    i += 1;
+                    let position = Math.floor(Math.random() * 99);
+                    let direction = Math.floor(Math.random() * 4);
+    
+                    if (!positionCalculator(0, newdata).isSomethingThere({
+                        position,
+                        direction
+                    }, size)) {
+    
+                        thisship = ship({
+                            size,
+                            position,
+                            direction
+                        })
+                        break;
+                    } else {
+                      if (i > 1000) {
+                           break;   
+                      }
+                    }
+                }
+    
+                this.renderer.addShip(index, positionCalculator(0, this.data).allpositions(thisship.vertex, thisship.size), thisship.vertex, thisship.size);
+            
+                return thisship;
+    
+            })
+      
+        },
         initPlayer: function () {
             this.renderer.initBoards();
         },
         chips: [2, 3, 4, 4, 2, 2, 3, 6].map(function (size) {
+            debugger
             let thisship = undefined;
+            if (!this.index) {
+                this.index = index;
+            }
             if (!this.renderer) {
                 this.renderer = render();
             }
@@ -215,8 +274,9 @@ function player(index, data = [...(" ".repeat(100).split("").map(function (value
             if (!this.strikes) {
                 this.strikes = strikes
             }
-
+            let i = 0;
             while (true) {
+                i += 1;
                 let position = Math.floor(Math.random() * 99);
                 let direction = Math.floor(Math.random() * 4);
 
@@ -231,11 +291,15 @@ function player(index, data = [...(" ".repeat(100).split("").map(function (value
                         direction
                     })
                     break;
+                } else {
+                  if (i > 1000) {
+                       break;   
+                  }
                 }
             }
 
-
-            this.renderer.addShip(index, positionCalculator(0, this.data).allpositions(thisship.vertex, thisship.size), thisship.vertex, thisship.size);
+            this.renderer.addShip(this.index, positionCalculator(0, this.data).allpositions(thisship.vertex, thisship.size), thisship.vertex, thisship.size);
+        
             return thisship;
 
         }),
@@ -350,9 +414,7 @@ function render() {
     }
 
     return {
-        cleanBoard: function (index = 0) {
 
-        },
         addShip: function (playerindex, allpositions, vertex, size) {
             debugger;
 
@@ -372,17 +434,7 @@ function render() {
         initBoards: function () {
             document.querySelector("#span_player1_label").innerHTML = "Board - Player 1</span><br />Its your turn, play!"
             document.querySelector("#span_player2_label").innerHTML = "Board - Player 2</span><br />Auto player"
-            //                    if (playerindex == 0) {
-            //                        document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).addEventListener("click", function(listener) {
-            //                            debugger;
-            //                            openShipMove(playerindex, vertex, size);
-            //                        })
-            //                    } else {
-            //                        document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).addEventListener("click", function(listener) {
-            //                            debugger;
-            //                            openShipMove(playerindex, vertex, size);
-            //                        })
-            //                    }
+
         },
         strikePosition: function (playerindex, position, done) {
             debugger;
@@ -410,6 +462,11 @@ function board() {
             this.players[1].initPlayer();
 
         },
+        reset: function() {
+
+            this.players[0].reset(0);
+            this.players[1].reset(1);
+        },
         rollTurns: function (position) {
             debugger;
             if (this.isPlayerOne) {
@@ -427,7 +484,11 @@ function app() {
 
     return {
         initGame: function () {
-            let thisboard = board();
+            var thisboard = board();
+            document.querySelector("#span_reset").addEventListener("click", function () { 
+                document.querySelectorAll("cells > item").forEach((e,v) => {e.classList.remove("active"); e.style.backgroundColor = "";});
+                thisboard.reset();
+            })
             document.querySelector("#span_play").addEventListener("click", function () {
 
                 thisboard.initBoard();
