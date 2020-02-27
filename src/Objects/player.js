@@ -5,38 +5,29 @@ import ship from './ship';
 
 export default function player(
   index,
-  data = [...(" ".repeat(100).split("").map(function (value) {
-    return false
-  }))], strikes = [...(" ".repeat(100).split("").map(function (value) {
-    return false
-  }))], playerrender = true) {
-
+  data = [...(' '.repeat(100).split('').map((value) => false))], strikes = [...(' '.repeat(100).split('').map((value) => false))], playerrender = true,
+) {
   return {
-    data: [...(" ".repeat(100).split("").map(function (value) {
-      return false
-    }))],
-    strikes: [...(" ".repeat(100).split("").map(function (value) {
-      return false
-    }))],
-    index: index,
+    data: [...(' '.repeat(100).split('').map((value) => false))],
+    strikes: [...(' '.repeat(100).split('').map((value) => false))],
+    index,
     renderer: render(),
-    initallevents:  (board) => {
+    initallevents: (board) => {
       this.renderer.initEventListeners(board);
     },
-    renderreset:  () => {
+    renderreset: () => {
       this.renderer.reset();
     },
-    reset: function () {
-
+    reset() {
       debugger;
-      let newdata = [...(" ".repeat(100).split("").map(function (value) {
+      const newdata = [...(' '.repeat(100).split('').map((value) => {
         return false
       }))];
-      this.data = newdata
-      this.strikes = newdata
-      let a = this.data;
-      let b = this.index;
-      this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map(function (size) {
+      this.data = newdata;
+      this.strikes = newdata;
+      const a = this.data;
+      const b = this.index;
+      this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
         debugger
         let thisship = undefined;
 
@@ -68,15 +59,15 @@ export default function player(
 
         return thisship;
 
-      })
+      });
 
     },
-    initPlayer:  () => {
+    initPlayer: () => {
       this.renderer.renderLabels();
     },
-    chips: function () {
-      debugger
-      [2, 3, 4, 4, 2, 2, 3, 6].map(function (size, index) {
+    chips: (function () {
+      debugger;
+      [2, 3, 4, 4, 2, 2, 3, 6].map((size, index) => {
         debugger
         let thisship = undefined;
 
@@ -119,30 +110,30 @@ export default function player(
 
         return thisship;
 
-      })
-    }(),
+      });
+    }()),
     strike: (position) => {
       debugger;
-      let error = undefined;
+      const error;
       if (!this.renderer) {
         this.renderer = render();
       }
       if (!this.data) {
-        this.data = data
+        this.data = data;
       }
       if (!this.strikes) {
-        this.strikes = strikes
+        this.strikes = strikes;
       }
 
 
       if (error) {
-        return error
-      } else {
-        this.data[position] = true;
+        return error;
       }
+      this.data[position] = true;
 
-      this.renderer.strikePosition(this.index, position, this.data[position])
+
+      this.renderer.strikePosition(this.index, position, this.data[position]);
     },
 
-  }
+  };
 }
