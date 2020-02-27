@@ -3,14 +3,21 @@ import render from './domrenderer';
 import ship from './ship';
 
 
-export default function player(index, data = [...(" ".repeat(100).split("").map(function (value) {
+export default function player(
+        index, 
+        data = [...(" ".repeat(100).split("").map(function (value) {
     return false
-}))], strikes = [...(" ".repeat(100).split("").map(function (value) {
+}))],   strikes = [...(" ".repeat(100).split("").map(function (value) {
     return false
-}))]) {
+}))],   playerrender = true) {
+
     return {
-        data: data,
-        strikes: strikes,
+        data: [...(" ".repeat(100).split("").map(function (value) {
+            return false
+        }))],
+        strikes: [...(" ".repeat(100).split("").map(function (value) {
+            return false
+        }))],
         index: index,
         renderer: render(),
         initallevents: function (board) {
@@ -69,36 +76,46 @@ export default function player(index, data = [...(" ".repeat(100).split("").map(
         },
         chips: function () {
             debugger
-            [2, 3, 4, 4, 2, 2, 3, 6].map(function (size) {
+            [2, 3, 4, 4, 2, 2, 3, 6].map(function (size, index) {
                 debugger
                 let thisship = undefined;
    
                 
                 let i = 0;
-                while (true) {
-                    i += 1;
-                    let position = Math.floor(Math.random() * 99);
-                    let direction = Math.floor(Math.random() * 4);
-    
-                    if (!positionCalculator(0, data).isSomethingThere({
-                        position,
-                        direction
-                    }, size)) {
-    
-                        thisship = ship({
-                            size,
+                
+                if (playerrender) {
+                    while (true) {
+                        i += 1;
+                        let position = Math.floor(Math.random() * 99);
+                        let direction = Math.floor(Math.random() * 4);
+        
+                        if (!positionCalculator(0, data).isSomethingThere({
                             position,
                             direction
-                        })
-                        break;
-                    } else {
-                      if (i > 1000) {
-                           break;   
-                      }
+                        }, size)) {
+        
+                            thisship = ship({
+                                size,
+                                position,
+                                direction
+                            })
+                            break;
+                        } else {
+                          if (i > 1000) {
+                               break;   
+                          }
+                        }
                     }
+                    render().addShip(index, positionCalculator(0, data).allpositions(thisship.vertex, thisship.size), thisship.vertex, thisship.size);
                 }
-    
-                render().addShip(index, positionCalculator(0, data).allpositions(thisship.vertex, thisship.size), thisship.vertex, thisship.size);
+                else {
+                    thisship = ship({
+                        size,
+                        index,
+                        direction: 0,
+                    })
+                }
+                
             
                 return thisship;
     
