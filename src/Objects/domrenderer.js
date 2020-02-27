@@ -7,7 +7,7 @@ export default function render() {
 
     let elementsArray = document.querySelectorAll(`cells[data-playerid='${playerindex}'] > item`);
     if (initialized) {
-      elementsArray.forEach(function (elem) {
+      elementsArray.forEach( (elem) => {
         elem.classList.remove('opened')
         elem.setAttribute('data-size', size)
         elem.setAttribute('data-playerindex', playerindex)
@@ -15,13 +15,13 @@ export default function render() {
 
       });
     } else {
-      elementsArray.forEach(function (elem) {
+      elementsArray.forEach( (elem) => {
 
         elem.setAttribute('data-size', size)
         elem.setAttribute('data-playerindex', playerindex)
         elem.setAttribute('data-direction', vertex.direction)
 
-        elem.addEventListener("mouseenter", function () {
+        elem.addEventListener("mouseenter", () => {
           let descicions = positionCalculator(parseInt(elem.getAttribute('data-id')));
           let hoveredArray = document.querySelectorAll(`cells[data-playerid='${elem.getAttribute('data-playerindex')}'] > item`);
           let positions = []
@@ -46,7 +46,7 @@ export default function render() {
 
         });
 
-        elem.addEventListener("mouseleave", function () {
+        elem.addEventListener("mouseleave", () => {
           let descicions = positionCalculator(parseInt(elem.getAttribute('data-id')));
           let hoveredArray = document.querySelectorAll(`cells[data-playerid='${elem.getAttribute('data-playerindex')}'] > item`);
           let positions = []
@@ -81,7 +81,7 @@ export default function render() {
   }
 
   return {
-    addShip: function (playerindex, allpositions, vertex, size) {
+    addShip:  (playerindex, allpositions, vertex, size) => {
       debugger;
 
       let color = `rgba(${(Math.random() * 255)},${(Math.random() * 255)},${(Math.random() * 255)},0.3)`;
@@ -96,14 +96,14 @@ export default function render() {
       })
       return allpositions;
     },
-    initEventListeners: function (board) {
+    initEventListeners:  (board) => {
       document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.addEventListener("click", function abc(listener) {
         debugger;
         board.rollTurns(this.getAttribute('data-id'));
         board.rollTurns(Math.floor(Math.random() * 99));
       }))
     },
-    reset: function () {
+    reset: () => {
       document.querySelectorAll("cells > item").forEach((e, v) => { e.classList.remove("active"); e.classList.remove("striked"); e.classList.remove("striked1"); e.style.backgroundColor = ""; });
       document.querySelector("#span_player1_label").innerHTML = '<span style="font-weight: 600;">Board - Player 1</span><br />Press play to begin'
       document.querySelector("#span_player2_label").innerHTML = '<span style="font-weight: 600;">Board - CPU</span><br />Press play to begin'
@@ -111,11 +111,11 @@ export default function render() {
       document.querySelector(`#span_score[data-playerid='${0}']`).innerHTML = 26
       document.querySelector(`#span_score[data-playerid='${1}']`).innerHTML = 26
     },
-    renderLabels: function () {
+    renderLabels: () => {
       document.querySelector("#span_player1_label").innerHTML = '<span style="font-weight: 600;">Board - Player 1</span><br />Its your turn, play!'
       document.querySelector("#span_player2_label").innerHTML = '<span style="font-weight: 600;">Board - CPU</span><br />Auto player'
     },
-    strikePosition: function (playerindex, position, done) {
+    strikePosition:  (playerindex, position, done) => {
       debugger;
 
       if (document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.contains('active')) {
