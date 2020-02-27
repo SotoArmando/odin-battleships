@@ -5,7 +5,7 @@ linters:
         config: './eslint.config'
 
     csslint:
-        ignore: 'order-alphabetical,box-sizing,fallback-colors,duplicate-properties,overqualified-elements'
+        ignore: 'order-alphabetical,box-sizing,fallback-colors,duplicate-properties,overqualified-elements,important'
 files:
     ignore:
         - 'node_modules/*'
