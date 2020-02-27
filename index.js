@@ -1,11 +1,15 @@
 module.exports = {
   extends: 'stylelint-config-recommended',
   rules: {
-    "react/jsx-filename-extension": 0,
-    "no-use-before-define": 0,
-    "no-underscore-dangle": 0,
-    "import/no-named-as-default": 0,
-    "import/no-named-as-default-member": 0,
+    "quotes": 'never',
+    "object-curly-spacing": 'never',
+
+    "react/jsx-filename-extension": 'never',
+    "no-use-before-define": 'never',
+    "no-underscore-dangle": 'never',
+    "quote-props": 'never',
+    "import/no-named-as-default": 'never',
+    "import/no-named-as-default-member": 'never',
     "prefer-destructuring": ["error", {"object": false, "array": false}],
     'at-rule-empty-line-before': ['always', {
       except: [
@@ -64,7 +68,7 @@ module.exports = {
     'function-comma-newline-after': 'always-multi-line',
     'function-comma-space-after': 'always-single-line',
     'function-comma-space-before': 'never',
-    'function-max-empty-lines': 0,
+    'function-max-empty-lines': 'never',
     'function-name-case': 'lower',
     'function-parentheses-newline-inside': 'always-multi-line',
     'function-parentheses-space-inside': 'never-single-line',
@@ -98,7 +102,7 @@ module.exports = {
     'selector-descendant-combinator-no-non-space': true,
     'selector-list-comma-newline-after': 'always',
     'selector-list-comma-space-before': 'never',
-    'selector-max-empty-lines': 0,
+    'selector-max-empty-lines': 'never',
     'selector-pseudo-class-case': 'lower',
     'selector-pseudo-class-parentheses-space-inside': 'never',
     'selector-pseudo-element-case': 'lower',
@@ -108,6 +112,6 @@ module.exports = {
     'value-list-comma-newline-after': 'always-multi-line',
     'value-list-comma-space-after': 'always-single-line',
     'value-list-comma-space-before': 'never',
-    'value-list-max-empty-lines': 0,
+    'value-list-max-empty-lines': 'never',
   },
 };
