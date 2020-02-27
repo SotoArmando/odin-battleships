@@ -20,10 +20,10 @@ export default function player(
     }))],
     index: index,
     renderer: render(),
-    initallevents: function (board) {
+    initallevents:  (board) => {
       this.renderer.initEventListeners(board);
     },
-    renderreset: function () {
+    renderreset:  () => {
       this.renderer.reset();
     },
     reset: function () {
@@ -71,7 +71,7 @@ export default function player(
       })
 
     },
-    initPlayer: function () {
+    initPlayer:  () => {
       this.renderer.renderLabels();
     },
     chips: function () {
@@ -121,7 +121,7 @@ export default function player(
 
       })
     }(),
-    strike: function (position) {
+    strike: (position) => {
       debugger;
       let error = undefined;
       if (!this.renderer) {

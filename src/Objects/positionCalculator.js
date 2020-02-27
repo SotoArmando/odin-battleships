@@ -1,7 +1,7 @@
 function positionCalculator(position = 0, data) {
   return {
     position,
-    goLeft: function (number) {
+    goLeft:  (number) => {
       let error = undefined;
       error = (number > 98 || number < 2) ? 'There is no more board to do that' : undefined
       if (error) {
@@ -11,7 +11,7 @@ function positionCalculator(position = 0, data) {
         return (this.position);
       }
     },
-    goRight: function (number) {
+    goRight:  (number) => {
       let error = undefined;
       error = (number > 98 || number < 2) ? 'There is no more board to do that' : undefined
       if (error) {
@@ -21,7 +21,7 @@ function positionCalculator(position = 0, data) {
         return (this.position);
       }
     },
-    goUp: function (number) {
+    goUp:  (number) => {
       let error = undefined;
       error = (number > 89) ? 'There is no more board to do that' : undefined
       if (error) {
@@ -31,7 +31,7 @@ function positionCalculator(position = 0, data) {
         return (this.position);
       }
     },
-    goDown: function (number) {
+    goDown:  (number) => {
       let error = undefined;
       error = (number < 10) ? 'There is no more board to do that' : undefined
       if (error) {
@@ -41,7 +41,7 @@ function positionCalculator(position = 0, data) {
         return (this.position);
       }
     },
-    isSomethingThere: function (vertex, size) {
+    isSomethingThere:  (vertex, size) => {
 
       let yes = false;
       this.position = vertex.position;
@@ -103,7 +103,7 @@ function positionCalculator(position = 0, data) {
       return yes;
     },
 
-    allpositions: function (vertex, size) {
+    allpositions:  (vertex, size) => {
       this.position = vertex.position;
       let positions = []
 
