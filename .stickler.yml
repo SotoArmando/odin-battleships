@@ -3,6 +3,7 @@ linters:
     flake8:
     eslint:
         config: './eslint.config'
+        fixer: true
     csslint:
         ignore: 'order-alphabetical,box-sizing,arrow-body-style,key-spacing,padded-blocks,no-unused-vars,space-in-parens,semi,quotes,radix,prefer-const,no-undef'
 files:
@@ -12,3 +13,5 @@ files:
         - 'src/index.js'
         - 'dist/bundle.js'
         - 'dist/bundle.js'
+fixers:
+    enable: true
