@@ -15,10 +15,10 @@ export default function ship({
     },
     isInit: false,
 
-    hit: function () {
+    hit:  () => {
       this.lives.size -= 1;
     },
-    isSunk: function () {
+    isSunk:  () => {
       return this.lives.size === 0;
     }
   }
