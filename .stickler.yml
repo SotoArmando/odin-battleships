@@ -3,6 +3,7 @@ linters:
     flake8:
     eslint:
         config: './eslint.config'
+        ignore: 'quotes'
     csslint:
         ignore: 'order-alphabetical,box-sizing'
 files:

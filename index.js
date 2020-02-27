@@ -3,7 +3,6 @@ module.exports = {
   rules: {
     "quotes": 'never',
     "object-curly-spacing": 'never',
-
     "react/jsx-filename-extension": 'never',
     "no-use-before-define": 'never',
     "no-underscore-dangle": 'never',
