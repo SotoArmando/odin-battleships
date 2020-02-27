@@ -3,9 +3,9 @@ linters:
     flake8:
     eslint:
         config: './eslint.config'
-        ignore: 'quotes'
+
     csslint:
-        ignore: 'order-alphabetical,box-sizing'
+        ignore: 'order-alphabetical,box-sizing,fallback-colors,duplicate-properties,overqualified-elements'
 files:
     ignore:
         - 'node_modules/*'
