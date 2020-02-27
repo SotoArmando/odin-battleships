@@ -1,0 +1,35 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "Nice :D",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch",
+    "build": "webpack --mode=development",
+    "dev": "webpack-dev-server --open"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SotoArmando/odin-battleships.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SotoArmando/odin-battleships/issues"
+  },
+  "homepage": "https://github.com/SotoArmando/odin-battleships#readme",
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "jest": "^24.8.0",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.8.4"
+  }
+}
