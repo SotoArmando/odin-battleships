@@ -1,6 +1,6 @@
 # README
 
-Hi i am the author [SotoArmando](https://github.com/SotoArmando) if this project and this is my battleships approach over battleships from odin project https://www.theodinproject.com/courses/javascript/lessons/battleship.
+Hi i am the author [SotoArmando](https://github.com/SotoArmando) of this project and this is my battleships approach over battleships from odin project https://www.theodinproject.com/courses/javascript/lessons/battleship.
 
 
 ### Run this project
