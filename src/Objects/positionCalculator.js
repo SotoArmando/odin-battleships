@@ -42,7 +42,7 @@ function positionCalculator(position = 0, data) {
             }
         },
         isSomethingThere: function (vertex, size) {
-                
+
             let yes = false;
             this.position = vertex.position;
             let positions = []
@@ -156,4 +156,4 @@ function positionOut({
     return ((y * rows) + x);
 }
 
-export { positionCalculator, positionIn, positionOut}
+export { positionCalculator, positionIn, positionOut }

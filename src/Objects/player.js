@@ -1,15 +1,15 @@
-import {positionIn,positionOut,positionCalculator} from './positionCalculator';
+import { positionIn, positionOut, positionCalculator } from './positionCalculator';
 import render from './domrenderer';
 import ship from './ship';
 
 
 export default function player(
-        index, 
-        data = [...(" ".repeat(100).split("").map(function (value) {
-    return false
-}))],   strikes = [...(" ".repeat(100).split("").map(function (value) {
-    return false
-}))],   playerrender = true) {
+    index,
+    data = [...(" ".repeat(100).split("").map(function (value) {
+        return false
+    }))], strikes = [...(" ".repeat(100).split("").map(function (value) {
+        return false
+    }))], playerrender = true) {
 
     return {
         data: [...(" ".repeat(100).split("").map(function (value) {
@@ -26,8 +26,8 @@ export default function player(
         renderreset: function () {
             this.renderer.reset();
         },
-        reset: function() {
-            
+        reset: function () {
+
             debugger;
             let newdata = [...(" ".repeat(100).split("").map(function (value) {
                 return false
@@ -39,18 +39,18 @@ export default function player(
             this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map(function (size) {
                 debugger
                 let thisship = undefined;
-          
+
                 let i = 0;
                 while (true) {
                     i += 1;
                     let position = Math.floor(Math.random() * 99);
                     let direction = Math.floor(Math.random() * 4);
-    
+
                     if (!positionCalculator(0, newdata).isSomethingThere({
                         position,
                         direction
                     }, size)) {
-    
+
                         thisship = ship({
                             size,
                             position,
@@ -58,18 +58,18 @@ export default function player(
                         })
                         break;
                     } else {
-                      if (i > 1000) {
-                           break;   
-                      }
+                        if (i > 1000) {
+                            break;
+                        }
                     }
                 }
-    
+
                 render().addShip(b, positionCalculator(0, a).allpositions(thisship.vertex, thisship.size), thisship.vertex, thisship.size);
-            
+
                 return thisship;
-    
+
             })
-      
+
         },
         initPlayer: function () {
             this.renderer.renderLabels();
@@ -79,21 +79,21 @@ export default function player(
             [2, 3, 4, 4, 2, 2, 3, 6].map(function (size, index) {
                 debugger
                 let thisship = undefined;
-   
-                
+
+
                 let i = 0;
-                
+
                 if (playerrender) {
                     while (true) {
                         i += 1;
                         let position = Math.floor(Math.random() * 99);
                         let direction = Math.floor(Math.random() * 4);
-        
+
                         if (!positionCalculator(0, data).isSomethingThere({
                             position,
                             direction
                         }, size)) {
-        
+
                             thisship = ship({
                                 size,
                                 position,
@@ -101,9 +101,9 @@ export default function player(
                             })
                             break;
                         } else {
-                          if (i > 1000) {
-                               break;   
-                          }
+                            if (i > 1000) {
+                                break;
+                            }
                         }
                     }
                     render().addShip(index, positionCalculator(0, data).allpositions(thisship.vertex, thisship.size), thisship.vertex, thisship.size);
@@ -115,10 +115,10 @@ export default function player(
                         direction: 0,
                     })
                 }
-                
-            
+
+
                 return thisship;
-    
+
             })
         }(),
         strike: function (position) {
@@ -140,8 +140,8 @@ export default function player(
             } else {
                 this.data[position] = true;
             }
-            
-            this.renderer.strikePosition(this.index, position,this.data[position])
+
+            this.renderer.strikePosition(this.index, position, this.data[position])
         },
 
     }
