@@ -34,7 +34,4 @@ describe('Board', () => {
   it('there must be 2 players', () => {
     expect(board.players.length).not.toBeUndefined();
   });
-
-
-
 })
