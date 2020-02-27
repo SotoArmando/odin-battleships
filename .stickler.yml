@@ -9,5 +9,5 @@ files:
     ignore:
         - 'node_modules/*'
         - 'src/generated/*'
-        - 'src/main.js'
-        - 'dist/main.js'
+        - 'src/index.js'
+        - 'dist/bundle.js'
