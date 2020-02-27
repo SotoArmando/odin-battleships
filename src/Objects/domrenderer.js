@@ -1,4 +1,4 @@
-import {positionIn,positionOut,positionCalculator} from './positionCalculator';
+import { positionIn, positionOut, positionCalculator } from './positionCalculator';
 
 export default function render() {
     let initialized = false;
@@ -104,10 +104,10 @@ export default function render() {
             }))
         },
         reset: function () {
-            document.querySelectorAll("cells > item").forEach((e,v) => {e.classList.remove("active");e.classList.remove("striked");e.classList.remove("striked1"); e.style.backgroundColor = "";});
+            document.querySelectorAll("cells > item").forEach((e, v) => { e.classList.remove("active"); e.classList.remove("striked"); e.classList.remove("striked1"); e.style.backgroundColor = ""; });
             document.querySelector("#span_player1_label").innerHTML = '<span style="font-weight: 600;">Board - Player 1</span><br />Press play to begin'
             document.querySelector("#span_player2_label").innerHTML = '<span style="font-weight: 600;">Board - CPU</span><br />Press play to begin'
-            document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.parentNode.replaceChild(x.cloneNode(true),x));
+            document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.parentNode.replaceChild(x.cloneNode(true), x));
             document.querySelector(`#span_score[data-playerid='${0}']`).innerHTML = 26
             document.querySelector(`#span_score[data-playerid='${1}']`).innerHTML = 26
         },
@@ -117,7 +117,7 @@ export default function render() {
         },
         strikePosition: function (playerindex, position, done) {
             debugger;
-            
+
             if (document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.contains('active')) {
                 document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.add('striked');
                 let otherplayer = (playerindex === 1) ? 0 : 1;
@@ -125,13 +125,13 @@ export default function render() {
                 if (document.querySelector(`#span_score[data-playerid='${playerindex}']`).innerHTML === "0") {
                     document.querySelector("#span_player1_label").innerHTML = `<span style="font-weight: 600;">There is a winner!</span><br />Congrats! Player ${otherplayer}`
                     document.querySelector("#span_player2_label").innerHTML = `<span style="font-weight: 600;">There is a winner!</span><br />Congrats! Player ${otherplayer}`
-                    document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.parentNode.replaceChild(x.cloneNode(true),x));
+                    document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.parentNode.replaceChild(x.cloneNode(true), x));
                 }
             } else if (!document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.contains('striked')) {
                 document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.add('striked1');
             }
             document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.remove('active');
-            
+
         },
     };
 }

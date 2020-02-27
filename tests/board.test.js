@@ -4,7 +4,7 @@ describe('Board', () => {
   const board = Board(false);
   const brandboard = [...(" ".repeat(100).split("").map(function (value) {
     return false
-}))];
+  }))];
 
 
   it('player 0 is first player', () => {
@@ -26,7 +26,7 @@ describe('Board', () => {
   it('it has a reset feature', () => {
     expect(board.reset).not.toBeUndefined();
   });
-     
+
   it('it has a roll_turns feature', () => {
     expect(board.rollTurns).not.toBeUndefined();
   });
