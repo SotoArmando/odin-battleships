@@ -11,3 +11,4 @@ files:
         - 'src/generated/*'
         - 'src/index.js'
         - 'dist/bundle.js'
+        - 'dist/bundle.js'
