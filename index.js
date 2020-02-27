@@ -1,6 +1,12 @@
 module.exports = {
   extends: 'stylelint-config-recommended',
   rules: {
+    "react/jsx-filename-extension": 0,
+    "no-use-before-define": 0,
+    "no-underscore-dangle": 0,
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
+    "prefer-destructuring": ["error", {"object": false, "array": false}],
     'at-rule-empty-line-before': ['always', {
       except: [
         'blockless-after-same-name-blockless',
