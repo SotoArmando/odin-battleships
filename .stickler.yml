@@ -4,7 +4,7 @@ linters:
     eslint:
         config: './eslint.config'
     csslint:
-        ignore: 'order-alphabetical,box-sizing'
+        ignore: 'order-alphabetical,box-sizing,arrow-body-style,key-spacing,padded-blocks,no-unused-vars,space-in-parens,semi,quotes,radix,prefer-const,no-undef'
 files:
     ignore:
         - 'node_modules/*'
