@@ -1,10 +1,18 @@
 import Ship from '../src/objects/ship';
 
 describe('Ship', () => {
-  const ship = Ship(4);
+  const ship = Ship({size:4, position:0, direction: 0});
 
-  it('has a length', () => {
-    expect(ship.length).toEqual(4);
+  it('has a size', () => {
+    expect(ship.size).toEqual(4);
+  });
+  
+  it('has a marked position', () => {
+    expect(ship.vertex.position).toEqual(0);
+  });
+
+  it('has a marked direction', () => {
+    expect(ship.vertex.direction).toEqual(0);
   });
 
   it('has a hit function', () => {
@@ -16,16 +24,18 @@ describe('Ship', () => {
   });
 
   it('sinks when all positions have been hit', () => {
-    const ship2 = Ship(2);
+    const ship2 = Ship({size:4, position:0, direction: 0});
     expect(ship2.isSunk()).toBe(false);
-    ship2.hit(0);
+    ship2.hit();
     expect(ship2.isSunk()).toBe(false);
-    ship2.hit(1);
+    ship2.hit();
+    expect(ship2.isSunk()).toBe(false);
+    ship2.hit();
+    expect(ship2.isSunk()).toBe(false);
+    ship2.hit();
+
     expect(ship2.isSunk()).toBe(true);
   });
 
-  it('modifies positions when hit', () => {
-    ship.hit(1);
-    expect(ship.positions).toEqual([false, true, false, false]);
-  });
+
 });
