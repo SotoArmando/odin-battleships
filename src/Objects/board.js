@@ -1,9 +1,9 @@
 import Player from './player'
 
-export default function board() {
+export default function board(playerrender = true) {
     return {
         isPlayerOne: true,
-        players: [Player(0), Player(1)],
+        players: [Player(0,null,null,playerrender), Player(1,null,null,playerrender)],
         showWinner: function (player) {
             return `There is a winner ${player}`
         },
