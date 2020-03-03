@@ -24,13 +24,14 @@ export default function player(
       this.strikes = newdata;
       const a = this.data;
       const b = this.index;
+      let thisship = ship(size, 0, 0);
       this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
         let i = 0;
         while (i < 5000) {
           i += 1;
-          let position = Math.floor(Math.random() * 99);
-          let direction = Math.floor(Math.random() * 4);
-          var thisship = ship(size,0,0)
+          const position = Math.floor(Math.random() * 99);
+          const direction = Math.floor(Math.random() * 4);
+          
           if (!positionCalculator(0, newdata).isSomethingThere({
             position,
             direction,
@@ -50,16 +51,15 @@ export default function player(
     initPlayer: () => {
       this.renderer.renderLabels();
     },
-    chips: (function () {
+    chips: (() => {
       [2, 3, 4, 4, 2, 2, 3, 6].map((size, index) => {
-        let thisship = undefined;
+        let thisship = ship(size, 0, 0);
         let i = 0;
         if (playerrender) {
-          while (true) {
+          while (i < 5000) {
             i += 1;
             const position = Math.floor(Math.random() * 99);
             const direction = Math.floor(Math.random() * 4);
-
             if (!positionCalculator(0, data).isSomethingThere({
               position,
               direction,
@@ -70,11 +70,7 @@ export default function player(
                 direction,
               });
               break;
-            } else {
-              if (i > 1000) {
-                break;
-              }
-            }
+            } 
           }
           render().addShip(index, positionCalculator(0, data).allpositions(thisship.vertex, thisship.size));
         }
@@ -87,7 +83,7 @@ export default function player(
         }
         return thisship;
       });
-    }()),
+    })(),
     strike: (position) => {
       if (!this.renderer) {
         this.renderer = render();

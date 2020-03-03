@@ -1,8 +1,33 @@
+function positionIn(x) {
+  const rows = 10;
+  const columns = 10;
+  const xismorethanonerow = (x > columns);
+  if (xismorethanonerow) {
+    return {
+      x: x % columns,
+      y: Math.floor(x / rows),
+    };
+  }
+  return {
+    x,
+    y: 0,
+  };
+}
+
+function positionOut({
+  x,
+  y,
+}) {
+  const rows = 10;
+  const columns = 10;
+  return ((y * rows) + x);
+}
+
 function positionCalculator(position = 0, data) {
   return {
     position,
     goLeft: (number) => {
-      let error;
+      const error;
       error = (number > 98 || number < 2) ? 'There is no more board to do that' : undefined;
       if (error) {
         return error;
@@ -11,7 +36,7 @@ function positionCalculator(position = 0, data) {
       return (this.position);
     },
     goRight: (number) => {
-      let error;
+      const error;
       error = (number > 98 || number < 2) ? 'There is no more board to do that' : undefined;
       if (error) {
         return error;
@@ -20,7 +45,7 @@ function positionCalculator(position = 0, data) {
       return (this.position);
     },
     goUp: (number) => {
-      let error;
+      const error;
       error = (number > 89) ? 'There is no more board to do that' : undefined;
       if (error) {
         return error;
@@ -29,12 +54,12 @@ function positionCalculator(position = 0, data) {
       return (this.position);
     },
     goDown: (number) => {
-      let error;
+      const error;
       error = (number < 10) ? 'There is no more board to do that' : undefined;
       if (error) {
         return error;
       }
-      this.position -= 10;
+      this.position -= 10;  
       return (this.position);
     },
     isSomethingThere: (vertex, size) => {
@@ -125,29 +150,6 @@ function positionCalculator(position = 0, data) {
   };
 }
 
-function positionIn(x) {
-  const rows = 10;
-  const columns = 10;
-  const xismorethanonerow = (x > columns);
-  if (xismorethanonerow) {
-    return {
-      x: x % columns,
-      y: Math.floor(x / rows),
-    };
-  }
-  return {
-    x,
-    y: 0,
-  };
-}
 
-function positionOut({
-  x,
-  y,
-}) {
-  const rows = 10;
-  const columns = 10;
-  return ((y * rows) + x);
-}
 
 export { positionCalculator, positionIn, positionOut };
