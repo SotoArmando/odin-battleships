@@ -19,7 +19,7 @@ export default function player(
       this.renderer.reset();
     },
     reset() {
-      debugger;
+ 
       const newdata = [...(' '.repeat(100).split('').map((value) => {
         return false
       }))];
@@ -28,7 +28,7 @@ export default function player(
       const a = this.data;
       const b = this.index;
       this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
-        debugger
+
         let thisship = undefined;
 
         let i = 0;
@@ -66,9 +66,9 @@ export default function player(
       this.renderer.renderLabels();
     },
     chips: (function () {
-      debugger;
+   
       [2, 3, 4, 4, 2, 2, 3, 6].map((size, index) => {
-        debugger
+
         let thisship = undefined;
 
 
