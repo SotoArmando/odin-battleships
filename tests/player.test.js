@@ -1,15 +1,13 @@
-import Player from '../src/objects/player';
+import Player from '../src/Objects/player';
 
 describe('Player', () => {
   const player = Player(1, null, null, false);
-  const brandboard = [...(" ".repeat(100).split("").map(function (value) {
-    return false
-}))];
+  const brandboard = [...(' '.repeat(100).split('').map(() => false))];
 
   it('has a board', () => {
     expect(player.data).toEqual(brandboard);
   });
-  
+
   it('has a strikable board ', () => {
     expect(player.strikes).toEqual(brandboard);
   });
@@ -33,4 +31,4 @@ describe('Player', () => {
   it('Loads its ships', () => {
     expect(player.data.includes(false)).toBe(true);
   });
-})
+});
