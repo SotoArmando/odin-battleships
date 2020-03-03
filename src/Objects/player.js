@@ -68,7 +68,8 @@ export default function player(
                 direction,
               });
               break;
-          }}
+            }
+          }
 
           render().addShip(index, positionCalculator(0, data)
             .allpositions(thisship.vertex, thisship.size));
