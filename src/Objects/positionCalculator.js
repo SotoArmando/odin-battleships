@@ -1,3 +1,4 @@
+
 function positionIn(x) {
   const rows = 10;
   const columns = 10;
@@ -27,8 +28,13 @@ function positionCalculator(position = 0, data) {
   return {
     position,
     goLeft: (number) => {
-      const error
-      error = (number > 98 || number < 2) ? 'There is no more board to do that' : 'none'
+      let error;
+
+      if (number > 98 || number < 2) {
+         error = 'There is no more board to do that'
+        } else {
+          error = 'none'
+        }
       if (error != 'none') {
         return error;
       }
@@ -36,17 +42,25 @@ function positionCalculator(position = 0, data) {
       return (this.position);
     },
     goRight: (number) => {
-      const error;
-      error = (number > 98 || number < 2) ? 'There is no more board to do that' : 'none';
+      let error;
+      if (number > 98 || number < 2) {
+        error = 'There is no more board to do that'
+      } else {
+        error = 'none'
+      }
       if (error != 'none') {
-        return error;
+        return error;sv
       }
       this.position += 1;
       return (this.position);
     },
     goUp: (number) => {
-      const error;
-      error = (number > 89) ? 'There is no more board to do that' : 'none';
+      let error;
+      if (number > 89) {
+        error = 'There is no more board to do that'
+      } else {
+        error = 'none'
+      }
       if (error != 'none') {
         return error;
       }
@@ -54,8 +68,12 @@ function positionCalculator(position = 0, data) {
       return (this.position);
     },
     goDown: (number) => {
-      const error;
-      error = (number < 10) ? 'There is no more board to do that' : 'none';
+      let error;
+      if (number < 10) {
+        error = 'There is no more board to do that'
+      } else {
+        error = 'none'
+      }
       if (error != 'none') {
         return error;
       }
