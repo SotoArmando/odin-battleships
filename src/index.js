@@ -1,18 +1,15 @@
 import Board from './Objects/board';
-
 function app() {
   return {
-    initGame: function () {
-      var thisboard = Board();
-      document.querySelector("#span_reset").addEventListener("click", function () {
+    initGame:  () => {
+      const thisboard = Board();
+      document.querySelector('#span_reset').addEventListener('click',  () => {
         thisboard.reset();
       })
-      document.querySelector("#span_play").addEventListener("click", function () {
+      document.querySelector('#span_play').addEventListener('click',  () => {
         thisboard.initBoard();
       })
     }
-
   }
 }
-
 app().initGame();
