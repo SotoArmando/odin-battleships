@@ -1,4 +1,4 @@
-import { positionCalculator } from './positionCalculator';
+import { positionCalculator } from './positionCalculator'
 import render from './domrenderer';
 import ship from './ship';
 
@@ -24,7 +24,6 @@ export default function player(
       this.strikes = newdata;
       const a = this.data;
       const b = this.index;
-      
       this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
         let i = 0;
         let thisship = ship(size, 0, 0);
@@ -32,7 +31,6 @@ export default function player(
           i += 1;
           const position = Math.floor(Math.random() * 99);
           const direction = Math.floor(Math.random() * 4);
-          
           if (!positionCalculator(0, newdata).isSomethingThere({
             position,
             direction,
@@ -64,7 +62,8 @@ export default function player(
             if (!positionCalculator(0, data).isSomethingThere({
               position,
               direction,
-            }, size)) {
+            }, size)) 
+            {
               thisship = ship({
                 size,
                 position,
@@ -73,7 +72,8 @@ export default function player(
               break;
             } 
           }
-          render().addShip(index, positionCalculator(0, data).allpositions(thisship.vertex, thisship.size));
+          render().addShip(index, positionCalculator(0, data)
+          .allpositions(thisship.vertex, thisship.size));
         }
         else {
           thisship = ship({

@@ -27,7 +27,7 @@ function positionCalculator(position = 0, data) {
   return {
     position,
     goLeft: (number) => {
-      const error;
+      const error
       error = (number > 98 || number < 2) ? 'There is no more board to do that' : undefined;
       if (error) {
         return error;
