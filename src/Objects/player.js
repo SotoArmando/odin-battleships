@@ -19,70 +19,56 @@ export default function player(
       this.renderer.reset();
     },
     reset() {
-      const newdata = [...(' '.repeat(100).split('').map(() =>  false))];
+      const newdata = [...(' '.repeat(100).split('').map(() => false))];
       this.data = newdata;
       this.strikes = newdata;
       const a = this.data;
       const b = this.index;
       this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
-
         let i = 0;
-        while (true) {
+        while (i < 5000) {
           i += 1;
           let position = Math.floor(Math.random() * 99);
           let direction = Math.floor(Math.random() * 4);
-
+          var thisship = ship(size,0,0)
           if (!positionCalculator(0, newdata).isSomethingThere({
             position,
-            direction
+            direction,
           }, size)) {
-
-            var thisship = ship({
+            thisship = ship({
               size,
               position,
-              direction
-            })
+              direction,
+            });
             break;
-          } else {
-            if (i > 1000) {
-              break;
-            }
           }
         }
-
         render().addShip(b, positionCalculator(0, a).allpositions(thisship.vertex, thisship.size));
-
         return thisship;
       });
-
     },
     initPlayer: () => {
       this.renderer.renderLabels();
     },
     chips: (function () {
       [2, 3, 4, 4, 2, 2, 3, 6].map((size, index) => {
-
         let thisship = undefined;
-
-
         let i = 0;
-
         if (playerrender) {
           while (true) {
             i += 1;
-            let position = Math.floor(Math.random() * 99);
-            let direction = Math.floor(Math.random() * 4);
+            const position = Math.floor(Math.random() * 99);
+            const direction = Math.floor(Math.random() * 4);
 
             if (!positionCalculator(0, data).isSomethingThere({
               position,
-              direction
+              direction,
             }, size)) {
-
               thisship = ship({
                 size,
                 position,
-                direction
-              })
+                direction,
+              });
               break;
             } else {
               if (i > 1000) {
@@ -97,10 +83,8 @@ export default function player(
             size,
             index,
             direction: 0,
-          })
+          });
         }
-
-
         return thisship;
       });
     }()),
@@ -114,11 +98,7 @@ export default function player(
       if (!this.strikes) {
         this.strikes = strikes;
       }
-
-
       this.data[position] = true;
-
-
       this.renderer.strikePosition(this.index, position, this.data[position]);
     },
   };
