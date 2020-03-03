@@ -8,7 +8,7 @@ function app() {
         thisboard.reset();
       });
       document.querySelector('#span_play').addEventListener('click', () => {
-        thisboard.initBoard();
+        thisboard.initBoard(thisboard);
       });
     },
   };
