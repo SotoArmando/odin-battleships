@@ -25,7 +25,7 @@ function positionCalculator(position = 0, data) {
       } else {
         error = 'none';
       }
-      if (error != 'none') {
+      if (error !== 'none') {
         return error;
       }
       this.position -= 1;
@@ -38,8 +38,8 @@ function positionCalculator(position = 0, data) {
       } else {
         error = 'none';
       }
-      if (error != 'none') {
-        return error; sv
+      if (error !== 'none') {
+        return error;
       }
       this.position += 1;
       return (this.position);
@@ -51,7 +51,7 @@ function positionCalculator(position = 0, data) {
       } else {
         error = 'none';
       }
-      if (error != 'none') {
+      if (error !== 'none') {
         return error;
       }
       this.position += 10;
@@ -64,7 +64,7 @@ function positionCalculator(position = 0, data) {
       } else {
         error = 'none';
       }
-      if (error != 'none') {
+      if (error !== 'none') {
         return error;
       }
       this.position -= 10;
@@ -77,6 +77,8 @@ function positionCalculator(position = 0, data) {
       const positionbi = positionIn(vertex.position);
 
       switch (vertex.direction) {
+        default:
+          return false;
         case 0:
           if (positionbi.y + size > 7) {
             return true;
@@ -99,10 +101,12 @@ function positionCalculator(position = 0, data) {
           break;
       }
 
-      for (let i = 0; i < size; i++) {
+      for (let i = 0; i < size; i += 1) {
         positions.push(this.position);
 
         switch (vertex.direction) {
+          default:
+            return false;
           case 0:
             yes = (data[this.position]) ? true : yes;
             this.goUp();
@@ -135,10 +139,11 @@ function positionCalculator(position = 0, data) {
       this.position = vertex.position;
       const positions = [];
 
-
-      for (let i = 0; i < size; i++) {
+      for (let i = 0; i < size; i += 1) {
         positions.push(this.position);
         switch (vertex.direction) {
+          default:
+            return false;
           case 0:
             this.goUp();
             break;
@@ -157,7 +162,5 @@ function positionCalculator(position = 0, data) {
     },
   };
 }
-
-
 
 export default positionCalculator;
