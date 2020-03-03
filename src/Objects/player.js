@@ -1,4 +1,4 @@
-import positionCalculator from './positionCalculator.js';
+import positionCalculator from './positionCalculator';
 import render from './domrenderer';
 import ship from './ship';
 
