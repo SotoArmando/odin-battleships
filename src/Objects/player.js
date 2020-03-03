@@ -42,7 +42,8 @@ export default function player(
             break;
           }
         }
-        render().addShip(b, positionCalculator(0, a).allpositions(thisship.vertex, thisship.size));
+        render().addShip(b, positionCalculator(0, a)
+        .allpositions(thisship.vertex, thisship.size));
         return thisship;
       });
     },
@@ -95,7 +96,8 @@ export default function player(
         this.strikes = strikes;
       }
       this.data[position] = true;
-      this.renderer.strikePosition(this.index, position, this.data[position]);
+      this.renderer
+      .strikePosition(this.index, position, this.data[position]);
     },
   };
 }
