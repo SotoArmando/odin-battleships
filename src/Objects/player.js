@@ -31,7 +31,8 @@ export default function player(
           i += 1;
           const position = Math.floor(Math.random() * 99);
           const direction = Math.floor(Math.random() * 4);
-          const condition  = positionCalculator(0, data).isSomethingThere({position, direction}, size);
+          const condition  = positionCalculator(0, data)
+          .isSomethingThere({position, direction}, size);
           if (!condition) {
             thisship = ship({
               size,
@@ -57,7 +58,8 @@ export default function player(
             i += 1;
             const position = Math.floor(Math.random() * 99);
             const direction = Math.floor(Math.random() * 4);
-            const condition  = positionCalculator(0, data).isSomethingThere({position, direction}, size);
+            const condition  = positionCalculator(0, data)
+            .isSomethingThere({position, direction}, size);
             if (!condition)
             {
               thisship = ship({
