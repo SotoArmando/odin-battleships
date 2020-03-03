@@ -74,7 +74,7 @@ export default function render() {
 
   return {
     addShip: (playerindex, allpositions, vertex, size) => {
-      debugger;
+  
 
       const color = `rgba(${(Math.random() * 255)},${(Math.random() * 255)},${(Math.random() * 255)},0.3)`;
       allpositions.forEach((position) => {
@@ -87,7 +87,7 @@ export default function render() {
     },
     initEventListeners: (board) => {
       document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.addEventListener('click', function abc(listener) {
-        debugger;
+  
         board.rollTurns(this.getAttribute('data-id'));
         board.rollTurns(Math.floor(Math.random() * 99));
       }));
@@ -105,7 +105,7 @@ export default function render() {
       document.querySelector('#span_player2_label').innerHTML = '<span style="font-weight: 600;">Board - CPU</span><br />Auto player';
     },
     strikePosition: (playerindex, position, done) => {
-      debugger;
+
 
       if (document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.contains('active')) {
         document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.add('striked');
