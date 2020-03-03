@@ -152,4 +152,4 @@ function positionCalculator(position = 0, data) {
 
 
 
-export  positionCalculator;
+export default positionCalculator;
