@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="bundle.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <topnav>
+        <wrapper>
+
+            <row>
+                <span id="span_play"
+                    style="text-align: center;background-color: rgba(0, 0, 0, 0.54);padding:.4rem .5rem;">Play</span>
+                <span id="span_reset"
+                    style="text-align: center;background-color: rgba(0, 0, 0, 0.54);padding:.4rem .5rem;">Reset</span>
+            </row>
+
+
+        </wrapper>
+    </topnav>
+    <page class="active battleships-container">
+        <wrapper>
+            <board style="position: relative;">
+                <span id="span_player1_label" style="margin-left:20px;"><span style="font-weight: 600;">Board - Player
+                        1</span><br />Press play to begin</span>
+                <cells data-playerid="0" style="margin-bottom: 1rem;margin-top: 1rem;">
+                    <item data-id='0'></item>
+                    <item data-id='1'></item>
+                    <item data-id='2'></item>
+                    <item data-id='3'></item>
+                    <item data-id='4'></item>
+                    <item data-id='5'></item>
+                    <item data-id='6'></item>
+                    <item data-id='7'></item>
+                    <item data-id='8'></item>
+                    <item data-id='9'></item>
+                    <item data-id='10'></item>
+                    <item data-id='11'></item>
+                    <item data-id='12'></item>
+                    <item data-id='13'></item>
+                    <item data-id='14'></item>
+                    <item data-id='15'></item>
+                    <item data-id='16'></item>
+                    <item data-id='17'></item>
+                    <item data-id='18'></item>
+                    <item data-id='19'></item>
+                    <item data-id='20'></item>
+                    <item data-id='21'></item>
+                    <item data-id='22'></item>
+                    <item data-id='23'></item>
+                    <item data-id='24'></item>
+                    <item data-id='25'></item>
+                    <item data-id='26'></item>
+                    <item data-id='27'></item>
+                    <item data-id='28'></item>
+                    <item data-id='29'></item>
+                    <item data-id='30'></item>
+                    <item data-id='31'></item>
+                    <item data-id='32'></item>
+                    <item data-id='33'></item>
+                    <item data-id='34'></item>
+                    <item data-id='35'></item>
+                    <item data-id='36'></item>
+                    <item data-id='37'></item>
+                    <item data-id='38'></item>
+                    <item data-id='39'></item>
+                    <item data-id='40'></item>
+                    <item data-id='41'></item>
+                    <item data-id='42'></item>
+                    <item data-id='43'></item>
+                    <item data-id='44'></item>
+                    <item data-id='45'></item>
+                    <item data-id='46'></item>
+                    <item data-id='47'></item>
+                    <item data-id='48'></item>
+                    <item data-id='49'></item>
+                    <item data-id='50'></item>
+                    <item data-id='51'></item>
+                    <item data-id='52'></item>
+                    <item data-id='53'></item>
+                    <item data-id='54'></item>
+                    <item data-id='55'></item>
+                    <item data-id='56'></item>
+                    <item data-id='57'></item>
+                    <item data-id='58'></item>
+                    <item data-id='59'></item>
+                    <item data-id='60'></item>
+                    <item data-id='61'></item>
+                    <item data-id='62'></item>
+                    <item data-id='63'></item>
+                    <item data-id='64'></item>
+                    <item data-id='65'></item>
+                    <item data-id='66'></item>
+                    <item data-id='67'></item>
+                    <item data-id='68'></item>
+                    <item data-id='69'></item>
+                    <item data-id='70'></item>
+                    <item data-id='71'></item>
+                    <item data-id='72'></item>
+                    <item data-id='73'></item>
+                    <item data-id='74'></item>
+                    <item data-id='75'></item>
+                    <item data-id='76'></item>
+                    <item data-id='77'></item>
+                    <item data-id='78'></item>
+                    <item data-id='79'></item>
+                    <item data-id='80'></item>
+                    <item data-id='81'></item>
+                    <item data-id='82'></item>
+                    <item data-id='83'></item>
+                    <item data-id='84'></item>
+                    <item data-id='85'></item>
+                    <item data-id='86'></item>
+                    <item data-id='87'></item>
+                    <item data-id='88'></item>
+                    <item data-id='89'></item>
+                    <item data-id='90'></item>
+                    <item data-id='91'></item>
+                    <item data-id='92'></item>
+                    <item data-id='93'></item>
+                    <item data-id='94'></item>
+                    <item data-id='95'></item>
+                    <item data-id='96'></item>
+                    <item data-id='97'></item>
+                    <item data-id='98'></item>
+                    <item data-id='99'></item>
+                </cells>
+                <span id="span_score" data-playerid="0"
+                    style="text-align: center;font-size: 3.574462890625em;">26</span>
+                <span id="span_log" data-playerid="0" style="position: absolute;bottom: 0;font-size: 1em;text-align: center;padding: 1em 0;max-width: 17em;align-self: center;"></span>
+            </board>
+            <space style="width:2rem;"></space>
+            <board style="position: relative;">
+                <span id="span_player2_label" style="margin-left:20px;"><span style="font-weight: 600;">Board -
+                        CPU</span><br />Press play to begin</span>
+
+                <cells data-playerid="1" style="margin-bottom: 1rem;margin-top: 1rem;">
+                    <item data-id='0'></item>
+                    <item data-id='1'></item>
+                    <item data-id='2'></item>
+                    <item data-id='3'></item>
+                    <item data-id='4'></item>
+                    <item data-id='5'></item>
+                    <item data-id='6'></item>
+                    <item data-id='7'></item>
+                    <item data-id='8'></item>
+                    <item data-id='9'></item>
+                    <item data-id='10'></item>
+                    <item data-id='11'></item>
+                    <item data-id='12'></item>
+                    <item data-id='13'></item>
+                    <item data-id='14'></item>
+                    <item data-id='15'></item>
+                    <item data-id='16'></item>
+                    <item data-id='17'></item>
+                    <item data-id='18'></item>
+                    <item data-id='19'></item>
+                    <item data-id='20'></item>
+                    <item data-id='21'></item>
+                    <item data-id='22'></item>
+                    <item data-id='23'></item>
+                    <item data-id='24'></item>
+                    <item data-id='25'></item>
+                    <item data-id='26'></item>
+                    <item data-id='27'></item>
+                    <item data-id='28'></item>
+                    <item data-id='29'></item>
+                    <item data-id='30'></item>
+                    <item data-id='31'></item>
+                    <item data-id='32'></item>
+                    <item data-id='33'></item>
+                    <item data-id='34'></item>
+                    <item data-id='35'></item>
+                    <item data-id='36'></item>
+                    <item data-id='37'></item>
+                    <item data-id='38'></item>
+                    <item data-id='39'></item>
+                    <item data-id='40'></item>
+                    <item data-id='41'></item>
+                    <item data-id='42'></item>
+                    <item data-id='43'></item>
+                    <item data-id='44'></item>
+                    <item data-id='45'></item>
+                    <item data-id='46'></item>
+                    <item data-id='47'></item>
+                    <item data-id='48'></item>
+                    <item data-id='49'></item>
+                    <item data-id='50'></item>
+                    <item data-id='51'></item>
+                    <item data-id='52'></item>
+                    <item data-id='53'></item>
+                    <item data-id='54'></item>
+                    <item data-id='55'></item>
+                    <item data-id='56'></item>
+                    <item data-id='57'></item>
+                    <item data-id='58'></item>
+                    <item data-id='59'></item>
+                    <item data-id='60'></item>
+                    <item data-id='61'></item>
+                    <item data-id='62'></item>
+                    <item data-id='63'></item>
+                    <item data-id='64'></item>
+                    <item data-id='65'></item>
+                    <item data-id='66'></item>
+                    <item data-id='67'></item>
+                    <item data-id='68'></item>
+                    <item data-id='69'></item>
+                    <item data-id='70'></item>
+                    <item data-id='71'></item>
+                    <item data-id='72'></item>
+                    <item data-id='73'></item>
+                    <item data-id='74'></item>
+                    <item data-id='75'></item>
+                    <item data-id='76'></item>
+                    <item data-id='77'></item>
+                    <item data-id='78'></item>
+                    <item data-id='79'></item>
+                    <item data-id='80'></item>
+                    <item data-id='81'></item>
+                    <item data-id='82'></item>
+                    <item data-id='83'></item>
+                    <item data-id='84'></item>
+                    <item data-id='85'></item>
+                    <item data-id='86'></item>
+                    <item data-id='87'></item>
+                    <item data-id='88'></item>
+                    <item data-id='89'></item>
+                    <item data-id='90'></item>
+                    <item data-id='91'></item>
+                    <item data-id='92'></item>
+                    <item data-id='93'></item>
+                    <item data-id='94'></item>
+                    <item data-id='95'></item>
+                    <item data-id='96'></item>
+                    <item data-id='97'></item>
+                    <item data-id='98'></item>
+                    <item data-id='99'></item>
+                </cells>
+                <span id="span_score" data-playerid="1"
+                    style="text-align: center;font-size: 3.574462890625em;">26</span>
+
+                <span id="span_log" data-playerid="1" style="position: absolute;bottom: 0;font-size: 1em;text-align: center;padding: 1em 0;max-width: 17em;align-self: center;"></span>
+            </board>
+        </wrapper>
+    </page>
+</body>

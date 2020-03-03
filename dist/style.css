@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: rgba(0, 0, 0, .84);
+    align-items: center;
+    height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    flex-direction: column;
+    transition-duration: 355ms;
+    opacity: 0;
+
+    box-sizing: border-box;
+}
+
+page > wrapper {
+    width: 75%;
+
+    min-height: 10rem;
+    margin-top: 1px;
+}
+
+page > wrapper:first-child {
+    margin-top: 3rem;
+}
+
+topnav {
+    position: fixed;
+    color: rgba(255, 255, 255, 0.84);
+    left: 0;
+    font-weight: 600;
+    top: 0;
+    display: flex;
+    min-height: 3rem;
+    background-image: linear-gradient(rgb(236, 22, 22), rgb(252, 41, 41), rgb(236, 22, 22));
+    width: 100%;
+    z-index: 10;
+    transition-duration: 355ms;
+    justify-content: center;
+}
+
+topnav > wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+topnav > wrapper > span {
+    padding: .4rem .5rem;
+    cursor: pointer;
+    margin: .4rem;
+}
+
+page.active {
+    opacity: 1;
+    transition-duration: 355ms;
+}
+
+page.battleships-container > wrapper {
+    justify-content: center;
+    display: flex;
+}
+
+page.battleships-container > wrapper > board > cells {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    max-height: 21em;
+
+}
+
+page.battleships-container > wrapper > board {
+    display: flex;
+    flex-direction: column;
+    min-width: 21rem;
+    position: relative;
+    min-height: 30rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    min-height: 32em;
+}
+
+page.battleships-container > wrapper > board:last-of-type > cells > item {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+
+
+page.battleships-container > wrapper > board > cells > item {
+    display: flex;
+    flex-grow: 1;
+    min-width: 9%;
+    margin: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition-duration: 355ms;
+}
+
+
+
+page.battleships-container > wrapper > board > cells > item.active {
+    background-color: rgba(255, 60, 60, 0.356);
+    transition-duration: 355ms;
+}
+
+page.battleships-container > wrapper > board > cells > item:hover {
+    transition-duration: 355ms;
+    background-color: rgba(240, 250, 101, 0.438) !important;
+}
+
+page.battleships-container > wrapper > board > cells > item.opened {
+    background-color: rgba(240, 250, 101, 0.438) !important;
+    transition-duration: 355ms;
+}
+
+page.battleships-container > wrapper > board > cells > item.error {
+    background-color: rgba(250, 101, 101, 0.438) !important;
+    transition-duration: 355ms;
+}
+
+.battleships-container > wrapper > board {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+page.battleships-container > wrapper > board > cells > item.striked {
+    background-color: rgba(236, 22, 22, .54) !important;
+    transition-duration: 355ms;
+}
+
+page.battleships-container > wrapper > board > cells > item.striked1 {
+    background-color: rgba(255, 251, 23, 0.973) !important;
+    transition-duration: 355ms;
+}
