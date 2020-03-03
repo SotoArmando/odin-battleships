@@ -59,7 +59,7 @@ function positionCalculator(position = 0, data) {
       if (error) {
         return error;
       }
-      this.position -= 10;  
+      this.position -= 10;
       return (this.position);
     },
     isSomethingThere: (vertex, size) => {

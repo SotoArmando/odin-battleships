@@ -62,15 +62,15 @@ export default function player(
             if (!positionCalculator(0, data).isSomethingThere({
               position,
               direction,
-              }, size))
-            {
+            }, size))
+              {
               thisship = ship({
                 size,
                 position,
                 direction,
               });
               break;
-            } 
+              } 
           }
           render().addShip(index, positionCalculator(0, data)
           .allpositions(thisship.vertex, thisship.size));
