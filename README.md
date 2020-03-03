@@ -19,6 +19,7 @@ if you using windows then get inside src folder using the explorer and open it m
 * Reset Game: Lets you start over again any time you like to.
 * Play Game: Start the game.
 * Winner Notify: Once you lost/striked 26 points you or the CPU will be a winner.
+* Ship Down Log: Once you got done an enemy ship it will display up in the player board.
 
 # Testing
 * ``` npm run test ```
