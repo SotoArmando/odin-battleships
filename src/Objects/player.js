@@ -74,7 +74,7 @@ export default function player(
           render().addShip(index, positionCalculator(0, data)
             .allpositions(thisship.vertex, thisship.size));
         }
-        else 
+        else
         {
           thisship = ship({
             size,
