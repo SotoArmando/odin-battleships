@@ -11,6 +11,7 @@ export default function player(
   let data = [...(' '.repeat(100).split('').map(() => false))];
   let strikes = [...(' '.repeat(100).split('').map(() => false))];
   const index = _index;
+  const shipnames= ['Destroyer','Submarine','Battleship','Battleship','Destroyer','Destroyer','Submarine','Carrier']
 
   return {
     data,
@@ -27,7 +28,7 @@ export default function player(
       const newdata = [...(' '.repeat(100).split('').map(() => false))];
       data = newdata;
       strikes = newdata;
-      this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
+      this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size,number) => {
         let i = 0;
         let thisship = ship(size, 0, 0);
         while (i < 5000) {
@@ -46,8 +47,10 @@ export default function player(
           }
         }
         
+        debugger
+
         render().addShip(index, positionCalculator(0, data)
-          .allpositions(thisship.vertex, thisship.size));
+          .allpositions(thisship.vertex, thisship.size),number);
         return thisship;
       });
     },
@@ -56,7 +59,7 @@ export default function player(
     },
     chips: (() => {
       const newdata = [...(' '.repeat(100).split('').map(() => false))];
-      [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
+      [2, 3, 4, 4, 2, 2, 3, 6].map((size,number) => {
         let thisship = ship(size, 0, 0);
         let i = 0;
         if (playerrender) {
@@ -66,7 +69,7 @@ export default function player(
             const direction = Math.floor(Math.random() * 4);
             const calc = positionCalculator(0, newdata)
             const condition = calc
-              .isSomethingThere({ position, direction }, size ,newdata);
+              .isSomethingThere({ position, direction }, size , newdata);
             if (!condition) {
               thisship = ship({
                 size,
@@ -77,7 +80,7 @@ export default function player(
             }
           }
           render().addShip(index, positionCalculator(0, data)
-            .allpositions(thisship.vertex, thisship.size));
+            .allpositions(thisship.vertex, thisship.size),number);
         }
         else
         {
@@ -90,14 +93,15 @@ export default function player(
         return thisship;
       });
     })(),
-    strike: (position) => {
+    strike: (position,arrid) => {
+      debugger;
       if (!renderer) {
         renderer = render();
       }
 
       data[position] = true;
       renderer
-        .strikePosition(index, position, data[position]);
+        .strikePosition(index, position, shipnames[arrid], arrid);
     },
   };
 }

@@ -27,7 +27,7 @@
     </topnav>
     <page class="active battleships-container">
         <wrapper>
-            <board>
+            <board style="position: relative;">
                 <span id="span_player1_label" style="margin-left:20px;"><span style="font-weight: 600;">Board - Player
                         1</span><br />Press play to begin</span>
                 <cells data-playerid="0" style="margin-bottom: 1rem;margin-top: 1rem;">
@@ -134,9 +134,10 @@
                 </cells>
                 <span id="span_score" data-playerid="0"
                     style="text-align: center;font-size: 3.574462890625em;">26</span>
+                <span id="span_log" data-playerid="0" style="position: absolute;bottom: 0;font-size: 1em;text-align: center;padding: 1em 0;max-width: 17em;align-self: center;"></span>
             </board>
             <space style="width:2rem;"></space>
-            <board>
+            <board style="position: relative;">
                 <span id="span_player2_label" style="margin-left:20px;"><span style="font-weight: 600;">Board -
                         CPU</span><br />Press play to begin</span>
 
@@ -244,6 +245,8 @@
                 </cells>
                 <span id="span_score" data-playerid="1"
                     style="text-align: center;font-size: 3.574462890625em;">26</span>
+
+                <span id="span_log" data-playerid="1" style="position: absolute;bottom: 0;font-size: 1em;text-align: center;padding: 1em 0;max-width: 17em;align-self: center;"></span>
             </board>
         </wrapper>
     </page>

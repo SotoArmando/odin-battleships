@@ -3,6 +3,7 @@ export default function ship({
   position,
   direction,
 }) {
+
   return {
     lives: {
       size,

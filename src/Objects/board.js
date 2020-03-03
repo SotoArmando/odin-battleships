@@ -16,11 +16,11 @@ export default (playerrender = true) => {
       players[0].reset(0);
       players[1].reset(1);
     },
-    rollTurns: (position) => {
+    rollTurns: (position,arrid) => {
       if (isPlayerOne) {
-        players[1].strike(position);
+        players[1].strike(position,arrid);
       } else {
-        players[0].strike(position);
+        players[0].strike(position,arrid);
       }
       isPlayerOne = !isPlayerOne;
     },
