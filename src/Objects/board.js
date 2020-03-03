@@ -1,7 +1,7 @@
 import Player from './player';
 
 export default (playerrender = true) => {
-  const players = [Player(0, null, null, playerrender), Player(1, null, null, playerrender)];
+  const players = [Player(0, playerrender), Player(1, playerrender)];
   let isPlayerOne = true;
 
   return {
@@ -12,7 +12,6 @@ export default (playerrender = true) => {
       players[1].initPlayer();
     },
     reset: () => {
-      debugger
       players[0].renderreset();
       players[0].reset(0);
       players[1].reset(1);

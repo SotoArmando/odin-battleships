@@ -148,13 +148,5 @@ function positionIn(x) {
   }
 }
 
-function positionOut({
-  x,
-  y
-}) {
-  let rows = 10;
-  let columns = 10;
-  return ((y * rows) + x);
-}
 
 export default positionCalculator
