@@ -1,13 +1,12 @@
 
 
 export default function render() {
-
   return {
     addShip: (playerindex, allpositions) => {
       const color = `rgba(${(Math.random() * 255)},${(Math.random() * 255)},${(Math.random() * 255)},0.3)`;
       allpositions.forEach((position) => {
         document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.add('active');
-        if (playerindex == 0) {
+        if (playerindex === 0) {
           document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).style.backgroundColor = color;
         }
       });
@@ -20,7 +19,7 @@ export default function render() {
       }));
     },
     reset: () => {
-      document.querySelectorAll('cells > item').forEach((e, v) => { e.classList.remove('active'); e.classList.remove('striked'); e.classList.remove('striked1'); e.style.backgroundColor = ''; });
+      document.querySelectorAll('cells > item').forEach((e) => { e.classList.remove('active'); e.classList.remove('striked'); e.classList.remove('striked1'); e.style.backgroundColor = ''; });
       document.querySelector('#span_player1_label').innerHTML = '<span style="font-weight: 600;">Board - Player 1</span><br />Press play to begin';
       document.querySelector('#span_player2_label').innerHTML = '<span style="font-weight: 600;">Board - CPU</span><br />Press play to begin';
       document.querySelectorAll(`cells[data-playerid='${1}'] > item`).forEach(x => x.parentNode.replaceChild(x.cloneNode(true), x));
