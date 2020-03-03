@@ -1,8 +1,8 @@
-import Player from '../src/objects/player';
+import Player from '../src/Objects/player';
 
 describe('Player', () => {
   const player = Player(1, null, null, false);
-  const brandboard = [...(' '.repeat(100).split('').map(value => false))];
+  const brandboard = [...(' '.repeat(100).split('').map(() => false))];
 
   it('has a board', () => {
     expect(player.data).toEqual(brandboard);

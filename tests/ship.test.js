@@ -1,4 +1,4 @@
-import Ship from '../src/objects/ship';
+import Ship from '../src/Objects/ship';
 
 describe('Ship', () => {
   const ship = Ship({ size: 4, position: 0, direction: 0 });
@@ -18,7 +18,6 @@ describe('Ship', () => {
   it('has a hit function', () => {
     expect(typeof ship.hit).toBe('function');
   });
-
 
   it('has an isSunk function', () => {
     expect(typeof ship.isSunk).toBe('function');
