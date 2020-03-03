@@ -1,4 +1,4 @@
-import { positionCalculator } from './positionCalculator';
+import positionCalculator from './positionCalculator';
 import render from './domrenderer';
 import ship from './ship';
 
@@ -63,14 +63,14 @@ export default function player(
               position,
               direction,
             }, size))
-              {
+            {
               thisship = ship({
                 size,
                 position,
                 direction,
               });
               break;
-              } 
+            } 
           }
           render().addShip(index, positionCalculator(0, data)
           .allpositions(thisship.vertex, thisship.size));
