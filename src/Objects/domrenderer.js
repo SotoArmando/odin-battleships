@@ -3,7 +3,6 @@
 export default function render() {
   return {
     addShip: (playerindex, allpositions) => {
-      debugger
       const color = `rgba(${(Math.random() * 255)},${(Math.random() * 255)},${(Math.random() * 255)},0.3)`;
       allpositions.forEach((position) => {
         document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.add('active');

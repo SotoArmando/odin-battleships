@@ -5,18 +5,18 @@ import ship from './ship';
 
 export default function player(
   _index,
-  _data = [...(' '.repeat(100).split('').map(() => false))], _strikes = [...(' '.repeat(100).split('').map(() => false))], playerrender = true,
+   playerrender = true,
 ) {
-  const renderer = render();
+  let renderer = render();
   let data = [...(' '.repeat(100).split('').map(() => false))];
   let strikes = [...(' '.repeat(100).split('').map(() => false))];
   const index = _index;
 
   return {
-    data: [...(' '.repeat(100).split('').map(() => false))],
-    strikes: [...(' '.repeat(100).split('').map(() => false))],
+    data,
+    strikes,
     index,
-    renderer: renderer,
+    renderer,
     initallevents: (board) => {
       renderer.initEventListeners(board);
     },
@@ -26,7 +26,7 @@ export default function player(
     reset() {
       const newdata = [...(' '.repeat(100).split('').map(() => false))];
       data = newdata;
-      this.strikes = newdata;
+      strikes = newdata;
       this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
         let i = 0;
         let thisship = ship(size, 0, 0);
@@ -76,7 +76,6 @@ export default function player(
               break;
             }
           }
-          debugger
           render().addShip(index, positionCalculator(0, data)
             .allpositions(thisship.vertex, thisship.size));
         }
