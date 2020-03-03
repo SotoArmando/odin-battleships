@@ -15,26 +15,16 @@ function positionIn(x) {
   };
 }
 
-function positionOut({
-  x,
-  y,
-}) {
-  const rows = 10;
-  const columns = 10;
-  return ((y * rows) + x);
-}
-
 function positionCalculator(position = 0, data) {
   return {
     position,
     goLeft: (number) => {
       let error;
-
       if (number > 98 || number < 2) {
-         error = 'There is no more board to do that'
-        } else {
-          error = 'none'
-        }
+        error = 'There is no more board to do that'
+      } else {
+        error = 'none'
+      }
       if (error != 'none') {
         return error;
       }
@@ -49,7 +39,7 @@ function positionCalculator(position = 0, data) {
         error = 'none'
       }
       if (error != 'none') {
-        return error;sv
+        return error; sv
       }
       this.position += 1;
       return (this.position);
