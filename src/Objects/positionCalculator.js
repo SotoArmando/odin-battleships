@@ -28,8 +28,8 @@ function positionCalculator(position = 0, data) {
     position,
     goLeft: (number) => {
       const error
-      error = (number > 98 || number < 2) ? 'There is no more board to do that' : undefined
-      if (error) {
+      error = (number > 98 || number < 2) ? 'There is no more board to do that' : 'none'
+      if (error != 'none') {
         return error;
       }
       this.position -= 1;
@@ -37,8 +37,8 @@ function positionCalculator(position = 0, data) {
     },
     goRight: (number) => {
       const error;
-      error = (number > 98 || number < 2) ? 'There is no more board to do that' : undefined;
-      if (error) {
+      error = (number > 98 || number < 2) ? 'There is no more board to do that' : 'none';
+      if (error != 'none') {
         return error;
       }
       this.position += 1;
@@ -46,8 +46,8 @@ function positionCalculator(position = 0, data) {
     },
     goUp: (number) => {
       const error;
-      error = (number > 89) ? 'There is no more board to do that' : undefined;
-      if (error) {
+      error = (number > 89) ? 'There is no more board to do that' : 'none';
+      if (error != 'none') {
         return error;
       }
       this.position += 10;
@@ -55,8 +55,8 @@ function positionCalculator(position = 0, data) {
     },
     goDown: (number) => {
       const error;
-      error = (number < 10) ? 'There is no more board to do that' : undefined;
-      if (error) {
+      error = (number < 10) ? 'There is no more board to do that' : 'none';
+      if (error != 'none') {
         return error;
       }
       this.position -= 10;
