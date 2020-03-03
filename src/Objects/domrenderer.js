@@ -4,7 +4,7 @@ export default function render() {
   let canrollturns = true;
   return {
     addShip: (playerindex, allpositions, arrid) => {
-      debugger;
+      
       const color = `rgba(${(Math.random() * 255)},${(Math.random() * 255)},${(Math.random() * 255)},0.3)`;
       allpositions.forEach((position) => {
         document.querySelector(`cells[data-playerid='${playerindex}'] > item[data-id='${position}']`).classList.add('active');
@@ -29,7 +29,7 @@ export default function render() {
             if (otherplayercell < 99) {
               otherplayercell += 1;
             } else {
-              debugger;
+              
               otherplayercell = 0;
             }
             option = document.querySelector(`cells[data-playerid='0'] > item[data-id='${otherplayercell}']`)
@@ -60,11 +60,11 @@ export default function render() {
         document.querySelector(`#span_score[data-playerid='${playerindex}']`).innerHTML = parseInt(document.querySelector(`#span_score[data-playerid='${playerindex}']`).innerHTML, 10) - 1;
         let lives = positioncell.getAttribute("data-lives");
         if (lives == 1) {
-          debugger;
+          
           let playerspanlog = document.querySelector(`span#span_log[data-playerid='${otherplayer}']`)
           playerspanlog.innerHTML = `The player ${otherplayer} has striked down the <b>${shipname}</b>!`
         } else {
-          debugger;
+          
           lives -= 1;
           document.querySelectorAll(`cells[data-playerid='${playerindex}'] > item[data-arrid='${arrid}']`).forEach(cell => cell.setAttribute("data-lives", lives))
         }

@@ -47,7 +47,7 @@ export default function player(
           }
         }
         
-        debugger
+        
 
         render().addShip(index, positionCalculator(0, data)
           .allpositions(thisship.vertex, thisship.size),number);
@@ -94,7 +94,7 @@ export default function player(
       });
     })(),
     strike: (position,arrid) => {
-      debugger;
+      
       if (!renderer) {
         renderer = render();
       }
