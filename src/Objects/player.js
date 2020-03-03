@@ -1,29 +1,32 @@
-import positionCalculator from './positionCalculator';
+import positionCalculator  from './positionCalculator';
 import render from './domrenderer';
 import ship from './ship';
 
 
 export default function player(
-  index,
-  data = [...(' '.repeat(100).split('').map(() => false))], strikes = [...(' '.repeat(100).split('').map(() => false))], playerrender = true,
+  _index,
+  _data = [...(' '.repeat(100).split('').map(() => false))], _strikes = [...(' '.repeat(100).split('').map(() => false))], playerrender = true,
 ) {
+  const renderer = render();
+  let data = [...(' '.repeat(100).split('').map(() => false))];
+  let strikes = [...(' '.repeat(100).split('').map(() => false))];
+  const index = _index;
+
   return {
     data: [...(' '.repeat(100).split('').map(() => false))],
     strikes: [...(' '.repeat(100).split('').map(() => false))],
     index,
-    renderer: render(),
+    renderer: renderer,
     initallevents: (board) => {
-      this.renderer.initEventListeners(board);
+      renderer.initEventListeners(board);
     },
     renderreset: () => {
-      this.renderer.reset();
+      renderer.reset();
     },
     reset() {
       const newdata = [...(' '.repeat(100).split('').map(() => false))];
-      this.data = newdata;
+      data = newdata;
       this.strikes = newdata;
-      const a = this.data;
-      const b = this.index;
       this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
         let i = 0;
         let thisship = ship(size, 0, 0);
@@ -31,8 +34,8 @@ export default function player(
           i += 1;
           const position = Math.floor(Math.random() * 99);
           const direction = Math.floor(Math.random() * 4);
-          const condition = positionCalculator(0, data)
-            .isSomethingThere({ position, direction }, size);
+          const condition = positionCalculator(0, newdata)
+            .isSomethingThere({ position, direction }, size, newdata);
           if (!condition) {
             thisship = ship({
               size,
@@ -42,16 +45,18 @@ export default function player(
             break;
           }
         }
-        render().addShip(b, positionCalculator(0, a)
+        
+        render().addShip(index, positionCalculator(0, data)
           .allpositions(thisship.vertex, thisship.size));
         return thisship;
       });
     },
     initPlayer: () => {
-      this.renderer.renderLabels();
+      renderer.renderLabels();
     },
     chips: (() => {
-      [2, 3, 4, 4, 2, 2, 3, 6].map((size, index) => {
+      const newdata = [...(' '.repeat(100).split('').map(() => false))];
+      [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
         let thisship = ship(size, 0, 0);
         let i = 0;
         if (playerrender) {
@@ -59,8 +64,9 @@ export default function player(
             i += 1;
             const position = Math.floor(Math.random() * 99);
             const direction = Math.floor(Math.random() * 4);
-            const condition = positionCalculator(0, data)
-              .isSomethingThere({ position, direction }, size);
+            const calc = positionCalculator(0, newdata)
+            const condition = calc
+              .isSomethingThere({ position, direction }, size ,newdata);
             if (!condition) {
               thisship = ship({
                 size,
@@ -70,7 +76,7 @@ export default function player(
               break;
             }
           }
-
+          debugger
           render().addShip(index, positionCalculator(0, data)
             .allpositions(thisship.vertex, thisship.size));
         }
@@ -86,18 +92,13 @@ export default function player(
       });
     })(),
     strike: (position) => {
-      if (!this.renderer) {
-        this.renderer = render();
+      if (!renderer) {
+        renderer = render();
       }
-      if (!this.data) {
-        this.data = data;
-      }
-      if (!this.strikes) {
-        this.strikes = strikes;
-      }
-      this.data[position] = true;
-      this.renderer
-        .strikePosition(this.index, position, this.data[position]);
+
+      data[position] = true;
+      renderer
+        .strikePosition(index, position, data[position]);
     },
   };
 }

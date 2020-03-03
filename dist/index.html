@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <script src="bundle.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -15,8 +16,10 @@
         <wrapper>
 
             <row>
-                <span id="span_play" style="text-align: center;background-color: rgba(0, 0, 0, 0.54);padding:.4rem .5rem;">Play</span>
-                <span id="span_reset" style="text-align: center;background-color: rgba(0, 0, 0, 0.54);padding:.4rem .5rem;">Reset</span>
+                <span id="span_play"
+                    style="text-align: center;background-color: rgba(0, 0, 0, 0.54);padding:.4rem .5rem;">Play</span>
+                <span id="span_reset"
+                    style="text-align: center;background-color: rgba(0, 0, 0, 0.54);padding:.4rem .5rem;">Reset</span>
             </row>
 
 
@@ -25,7 +28,8 @@
     <page class="active battleships-container">
         <wrapper>
             <board>
-                <span id="span_player1_label" style="margin-left:20px;"><span style="font-weight: 600;">Board - Player 1</span><br />Press play to begin</span>
+                <span id="span_player1_label" style="margin-left:20px;"><span style="font-weight: 600;">Board - Player
+                        1</span><br />Press play to begin</span>
                 <cells data-playerid="0" style="margin-bottom: 1rem;margin-top: 1rem;">
                     <item data-id='0'></item>
                     <item data-id='1'></item>
@@ -128,11 +132,13 @@
                     <item data-id='98'></item>
                     <item data-id='99'></item>
                 </cells>
-                <span id="span_score" data-playerid="0" style="text-align: center;font-size: 3.574462890625em;">26</span>
+                <span id="span_score" data-playerid="0"
+                    style="text-align: center;font-size: 3.574462890625em;">26</span>
             </board>
             <space style="width:2rem;"></space>
             <board>
-                <span id="span_player2_label" style="margin-left:20px;"><span style="font-weight: 600;">Board - CPU</span><br />Press play to begin</span>
+                <span id="span_player2_label" style="margin-left:20px;"><span style="font-weight: 600;">Board -
+                        CPU</span><br />Press play to begin</span>
 
                 <cells data-playerid="1" style="margin-bottom: 1rem;margin-top: 1rem;">
                     <item data-id='0'></item>
@@ -236,13 +242,9 @@
                     <item data-id='98'></item>
                     <item data-id='99'></item>
                 </cells>
-                <span id="span_score" data-playerid="1" style="text-align: center;font-size: 3.574462890625em;">26</span>
+                <span id="span_score" data-playerid="1"
+                    style="text-align: center;font-size: 3.574462890625em;">26</span>
             </board>
         </wrapper>
     </page>
 </body>
-<script src="bundle.js"></script>
-
-
-
-
