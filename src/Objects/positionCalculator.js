@@ -21,9 +21,9 @@ function positionCalculator(position = 0, data) {
     goLeft: (number) => {
       let error;
       if (number > 98 || number < 2) {
-        error = 'There is no more board to do that'
+        error = 'There is no more board to do that';
       } else {
-        error = 'none'
+        error = 'none';
       }
       if (error != 'none') {
         return error;
@@ -34,9 +34,9 @@ function positionCalculator(position = 0, data) {
     goRight: (number) => {
       let error;
       if (number > 98 || number < 2) {
-        error = 'There is no more board to do that'
+        error = 'There is no more board to do that';
       } else {
-        error = 'none'
+        error = 'none';
       }
       if (error != 'none') {
         return error; sv
@@ -47,9 +47,9 @@ function positionCalculator(position = 0, data) {
     goUp: (number) => {
       let error;
       if (number > 89) {
-        error = 'There is no more board to do that'
+        error = 'There is no more board to do that';
       } else {
-        error = 'none'
+        error = 'none';
       }
       if (error != 'none') {
         return error;
@@ -60,9 +60,9 @@ function positionCalculator(position = 0, data) {
     goDown: (number) => {
       let error;
       if (number < 10) {
-        error = 'There is no more board to do that'
+        error = 'There is no more board to do that';
       } else {
-        error = 'none'
+        error = 'none';
       }
       if (error != 'none') {
         return error;
