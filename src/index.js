@@ -6,12 +6,12 @@ function app() {
       const thisboard = Board();
       document.querySelector('#span_reset').addEventListener('click', () => {
         thisboard.reset();
-      },);
+      });
       document.querySelector('#span_play').addEventListener('click', () => {
         thisboard.initBoard();
-      },);
-    }
-  }
+      });
+    },
+  };
 }
 
 app().initGame();
