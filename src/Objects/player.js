@@ -1,15 +1,15 @@
-import { positionIn, positionOut, positionCalculator } from './positionCalculator';
+import { positionCalculator } from './positionCalculator';
 import render from './domrenderer';
 import ship from './ship';
 
 
 export default function player(
   index,
-  data = [...(' '.repeat(100).split('').map((value) => false))], strikes = [...(' '.repeat(100).split('').map((value) => false))], playerrender = true,
+  data = [...(' '.repeat(100).split('').map(() => false))], strikes = [...(' '.repeat(100).split('').map(() => false))], playerrender = true,
 ) {
   return {
-    data: [...(' '.repeat(100).split('').map((value) => false))],
-    strikes: [...(' '.repeat(100).split('').map((value) => false))],
+    data: [...(' '.repeat(100).split('').map(() => false))],
+    strikes: [...(' '.repeat(100).split('').map(() => false))],
     index,
     renderer: render(),
     initallevents: (board) => {
@@ -19,17 +19,12 @@ export default function player(
       this.renderer.reset();
     },
     reset() {
- 
-      const newdata = [...(' '.repeat(100).split('').map((value) => {
-        return false
-      }))];
+      const newdata = [...(' '.repeat(100).split('').map(() =>  false))];
       this.data = newdata;
       this.strikes = newdata;
       const a = this.data;
       const b = this.index;
       this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
-
-        let thisship = undefined;
 
         let i = 0;
         while (true) {
@@ -42,7 +37,7 @@ export default function player(
             direction
           }, size)) {
 
-            thisship = ship({
+            var thisship = ship({
               size,
               position,
               direction
@@ -55,10 +50,9 @@ export default function player(
           }
         }
 
-        render().addShip(b, positionCalculator(0, a).allpositions(thisship.vertex, thisship.size), thisship.vertex, thisship.size);
+        render().addShip(b, positionCalculator(0, a).allpositions(thisship.vertex, thisship.size));
 
         return thisship;
-
       });
 
     },
@@ -66,7 +60,6 @@ export default function player(
       this.renderer.renderLabels();
     },
     chips: (function () {
-   
       [2, 3, 4, 4, 2, 2, 3, 6].map((size, index) => {
 
         let thisship = undefined;
@@ -97,7 +90,7 @@ export default function player(
               }
             }
           }
-          render().addShip(index, positionCalculator(0, data).allpositions(thisship.vertex, thisship.size), thisship.vertex, thisship.size);
+          render().addShip(index, positionCalculator(0, data).allpositions(thisship.vertex, thisship.size));
         }
         else {
           thisship = ship({
@@ -109,12 +102,9 @@ export default function player(
 
 
         return thisship;
-
       });
     }()),
     strike: (position) => {
-
-
       if (!this.renderer) {
         this.renderer = render();
       }
@@ -131,6 +121,5 @@ export default function player(
 
       this.renderer.strikePosition(this.index, position, this.data[position]);
     },
-
   };
 }
