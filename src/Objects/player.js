@@ -1,4 +1,4 @@
-import { positionCalculator } from './positionCalculator'
+import { positionCalculator } from './positionCalculator';
 import render from './domrenderer';
 import ship from './ship';
 
@@ -62,7 +62,7 @@ export default function player(
             if (!positionCalculator(0, data).isSomethingThere({
               position,
               direction,
-            }, size)) 
+              }, size))
             {
               thisship = ship({
                 size,
