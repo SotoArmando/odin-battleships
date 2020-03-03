@@ -113,8 +113,8 @@ export default function player(
       });
     }()),
     strike: (position) => {
-      debugger;
-      const error;
+
+
       if (!this.renderer) {
         this.renderer = render();
       }
@@ -126,9 +126,6 @@ export default function player(
       }
 
 
-      if (error) {
-        return error;
-      }
       this.data[position] = true;
 
 
