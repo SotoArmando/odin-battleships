@@ -24,9 +24,10 @@ export default function player(
       this.strikes = newdata;
       const a = this.data;
       const b = this.index;
-      let thisship = ship(size, 0, 0);
+      
       this.chips = [2, 3, 4, 4, 2, 2, 3, 6].map((size) => {
         let i = 0;
+        let thisship = ship(size, 0, 0);
         while (i < 5000) {
           i += 1;
           const position = Math.floor(Math.random() * 99);
