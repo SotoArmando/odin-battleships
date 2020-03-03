@@ -1,8 +1,6 @@
-
 import Board from './Objects/board';
 
 function app() {
-
   return {
     initGame: function () {
       var thisboard = Board();

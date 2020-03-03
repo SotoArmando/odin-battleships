@@ -16,7 +16,6 @@ export default function board(playerrender = true) {
       this.players[1].reset(1);
     },
     rollTurns: (position) => {
-
       if (this.isPlayerOne) {
         this.players[1].strike(position);
       } else {
