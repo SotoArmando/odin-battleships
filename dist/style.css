@@ -72,7 +72,7 @@ page.active {
 page.battleships-container > wrapper {
     justify-content: center;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap !important;
 }
 
 page.battleships-container > wrapper > board > cells {
