@@ -30,6 +30,8 @@ page > wrapper {
 
     min-height: 10rem;
     margin-top: 1px;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 page > wrapper:first-child {
@@ -93,6 +95,7 @@ page.battleships-container > wrapper > board {
     padding-top: 1rem;
     margin-top: 1rem;
     min-height: 32em;
+
 }
 
 page.battleships-container > wrapper > board:last-of-type > cells > item {
